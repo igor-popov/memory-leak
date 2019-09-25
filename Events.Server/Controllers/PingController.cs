@@ -7,6 +7,7 @@ namespace Events.Server.Controllers
     public class PingController: ApiController
     {
         [HttpGet]
+        [Route("")]
         public string ReplyToPing()
         {
             return $"Server responded {DateTime.UtcNow:s}";
