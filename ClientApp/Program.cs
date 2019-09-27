@@ -8,19 +8,11 @@ namespace ClientApp
     {
         static async Task Main(string[] args)
         {
-            await LoadTestServer(@"http://localhost/Events.Server/api/ping", 30000);
+            //await Scenarios.LoadTestEvents();
+            await Scenarios.LoadTestLargeObjectsHeap();
 
             Console.WriteLine("Completed!");
         }
 
-        private static async Task LoadTestServer(string url, int count)
-        {
-            var httpClient = new HttpClient();
-            for (int i = 0; i < count; i++)
-            {
-                string response = await httpClient.GetStringAsync(url);
-                Console.WriteLine($"{i} - {response}");
-            }
-        }
     }
 }
