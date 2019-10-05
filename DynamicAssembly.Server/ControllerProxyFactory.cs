@@ -67,7 +67,7 @@ namespace DynamicAssembly.Server
                 .Select(i => new Tuple<string, string>(argumentNames[i], ParseArgument(arguments[i])))
                 .Select(t => $"{t.Item1}={t.Item2.ToString()}"));*/
 
-            string url = $"{_baseUrl}/api/{controller}/{action}";
+            string url = $"{_baseUrl}/api/{controller}";
             /*if (!string.IsNullOrWhiteSpace(queryString))
                 url += "?" + queryString;*/
 

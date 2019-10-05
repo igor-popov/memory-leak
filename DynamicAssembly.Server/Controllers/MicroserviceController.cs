@@ -26,7 +26,7 @@ namespace DynamicAssembly.Server.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            var proxy = _proxyFactory.Create<IExternalMicroservice>();
+            var proxy = _proxyFactory.Create<IValues>();
             return proxy.Values();
         }
 
