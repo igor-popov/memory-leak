@@ -18,6 +18,11 @@ namespace ClientApp
             await LoadTestServer(@"https://localhost:5001/api/heavy?very=true", 1000);
         }
 
+        public static async Task LoadTestDynamicAssembly()
+        {
+            await LoadTestServer(@"https://localhost:5010/api/microservice", 1000);
+        }
+
         private static async Task LoadTestServer(string url, int count)
         {
             var httpClient = new HttpClient();

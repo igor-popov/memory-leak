@@ -9,7 +9,7 @@ namespace ClientApp
         static async Task Main(string[] args)
         {
             //await Scenarios.LoadTestEvents();
-            await Scenarios.LoadTestLargeObjectsHeap();
+            await Scenarios.LoadTestDynamicAssembly();
 
             Console.WriteLine("Completed!");
         }
