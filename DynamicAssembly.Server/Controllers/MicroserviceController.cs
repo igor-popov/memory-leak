@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading.Tasks;
-using Castle.DynamicProxy;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -15,11 +11,12 @@ namespace DynamicAssembly.Server.Controllers
     public class MicroserviceController : ControllerBase
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "https://localhost:44393";
+        private readonly string _baseUrl = "https://localhost:5005";
         private readonly ControllerProxyFactory _proxyFactory;
 
-        public MicroserviceController(HttpClient httpClient)
+        public MicroserviceController(IHttpClientFactory httpClientFactory)
         {
+            var httpClient = httpClientFactory.CreateClient();
             _httpClient = httpClient;
             _proxyFactory = new ControllerProxyFactory(httpClient, _baseUrl);
         }
