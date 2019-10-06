@@ -14,7 +14,6 @@ namespace Events.Server.Middlewares
             _next = next;
             RegisterMe();
         }
-               
 
         public async Task Invoke(IDictionary<string, object> environments)
         {

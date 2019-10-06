@@ -13,14 +13,24 @@ namespace ClientApp
             await LoadTestServer(@"http://localhost/Events.Server/api/ping", 30000);
         }
 
+        public static async Task LoadTestLargeObjectsHeapOnOwin()
+        {
+            await LoadTestServer(@"http://localhost/Events.Server/api/heavy?very=true", 1000);
+        }
+
+        public static async Task LoadTestDynamicAssemblyOnOwin()
+        {
+            await LoadTestServer(@"http://localhost/Events.Server/api/microservice", 5000);
+        }
+
         public static async Task LoadTestLargeObjectsHeap()
         {
-            await LoadTestServer(@"https://localhost:5001/api/heavy?very=true", 1000);
+            await LoadTestServer(@"https://localhost:5005/api/heavy?very=true", 1000);
         }
 
         public static async Task LoadTestDynamicAssembly()
         {
-            await LoadTestServer(@"https://localhost:5010/api/microservice", 1000);
+            await LoadTestServer(@"https://localhost:5010/api/microservice", 10000);
         }
 
         private static async Task LoadTestServer(string url, int count)

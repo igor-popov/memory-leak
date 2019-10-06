@@ -19,7 +19,7 @@ namespace Loh.Server
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseUrls("https://localhost:5005")
+                .UseUrls("https://localhost:5005", "http://localhost:5004")
                 .UseStartup<Startup>();
     }
 }
